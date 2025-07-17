@@ -6,14 +6,18 @@ export default class ToolBar extends HTMLElement {
       <style>
         :host {
           background:#333; display:flex; gap:20px; align-items:center;
-          padding:0 40px; box-sizing:border-box;
+          padding:0 40px; box-sizing:border-box;z-index: 110;
         }
         button{
-          font:inherit; padding:6px 28px; cursor:pointer; border-radius:3px;
+          font:inherit; padding:6px 28px; cursor:pointer; border-radius:6px;
+          width:10vw;
+          font-size:1vw;
         }
+          .save-button{
+          margin-left:60vw;}
       </style>
       <button id="create">Создать</button>
-      <button id="save">Сохранить</button>
+      <button class='save-button' id="save">Сохранить</button>
       <button id="reset">Сбросить</button>
     `;
   }

@@ -1,22 +1,29 @@
 import path from 'path';
-import { fileURLToPath } from 'url';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname  = path.dirname(__filename);
+import HtmlPlugin from 'html-webpack-plugin';
+import MiniCssExtract from 'mini-css-extract-plugin';
 
 export default {
-   entry: './src/main.js',          // ← пусть точка входа остаётся main.js
-   output: {
-     path: path.resolve(__dirname, 'dist'),
-     filename: 'main.js',                clean: true,
-     publicPath: '/Poligon_Designer/'
-   },
-   module: { /* ваши rules */ },
-   plugins: [
-     new HtmlWebpackPlugin({
-       template: 'src/index.html',
-       inject: 'body'
-     })
-   ]
+  mode: process.env.NODE_ENV ?? 'development',
+  entry: './src/main.js',
+  output:{
+    path: path.resolve('dist'),
+    filename:'bundle.js',
+    publicPath:'',
+    clean:true
+  },
+  module:{
+    rules:[
+      { test:/\.css$/i, use:[MiniCssExtract.loader,'css-loader'] }
+    ]
+  },
+  plugins:[
+    new HtmlPlugin({ template:'./src/index.html' }),
+    new MiniCssExtract({ filename:'styles.css' })
+  ],
+  devServer:{
+    static:'./src',
+    port:3000,
+    open:true,
+    hot:true
+  }
 };

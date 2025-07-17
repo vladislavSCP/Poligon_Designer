@@ -14,24 +14,24 @@
 <div class="poly-wrapper" style="width:100%;height:55vh;">
   
 
-  <canvas class="ruler-y"
-          style="position:absolute;left:0;top:0;width:40px;z-index: 99;
-                 height:calc(100% - 20px);pointer-events:none;background:#222;"></canvas>
+ <!-- слева (ось Y) -->
+<canvas class="ruler-y"
+        style="position:absolute; left:0; top:0;
+               width:50px; height:calc(100% - 50px);
+               pointer-events:none; z-index:99; background:#222;"></canvas>
 
-
-
+<!-- внизу (ось X) -->
 <canvas class="ruler-x"
-          style="position: absolute;
-  left: 50px;
-  top: 51.4vh;
-  height: 20px;
-  z-index: 99;
-  width: calc(100% - 40px);
-  pointer-events: none;
-  background: #222;"></canvas>
+        style="position:absolute; left:50px; bottom:0;
+               height:50px; width:calc(100% - 50px);
+               pointer-events:none; z-index:99; background:#222;"></canvas>
+
 
   <poly-zone id="workspace" type="workspace"
              style="display:block;width:100%;height:100%;"></poly-zone>
+
+
+
 </div>
 
 
